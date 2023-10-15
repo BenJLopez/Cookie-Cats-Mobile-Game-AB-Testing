@@ -24,13 +24,13 @@ retention_7 = App opened/played again 7 days after install date
 ## Analysis:
 ### Hypothesis Test Definitions:
 Considering "gate_30" as the standard control version, and "gate_40" as the test treatment:
-Null Hypothesis: The treatment "gate_40" has no relationship with the metric "retention_7"
-Alternative Hypothesis: "gate_40" treatment does have a relationship with the "retention_7" metric
+- Null Hypothesis: The treatment "gate_40" has no relationship with the metric "retention_7"
+- Alternative Hypothesis: "gate_40" treatment does have a relationship with the "retention_7" metric
 
-True-Positive (Power) - Cases where we assume gate_40 treatment does effect retention_7, and this assumption is correct
-True-Negative (Confidence) - Cases where we assume gate_40 treatment has no effect on retention_7, and this assumption is correct
-False-Positive (Type I Error) - Cases where we assume gate_40 treatment does effect retention_7, but this assumption is incorrect
-False-Negative (Type II Error) - Cases where we assume gate_40 treatment does not effect retention_7, but this assumption is incorrect
+- True-Positive (Power) - Cases where we assume gate_40 treatment does effect retention_7, and this assumption is correct
+- True-Negative (Confidence) - Cases where we assume gate_40 treatment has no effect on retention_7, and this assumption is correct
+- False-Positive (Type I Error) - Cases where we assume gate_40 treatment does effect retention_7, but this assumption is incorrect
+- False-Negative (Type II Error) - Cases where we assume gate_40 treatment does not effect retention_7, but this assumption is incorrect
 
 ### Day-7 Retention:
 Checking the 7-Day Retention for each treatment group (using groupbys):
