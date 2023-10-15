@@ -48,13 +48,30 @@ So we know that we are seeing a slight difference in retention at this point, bu
 
 ### Bootstrapping 7-Day Retention (visual confirmation of diff)
 
-![image](https://github.com/BenJLopez/Cookie-Cats-Mobile-Game-AB-Testing/assets/86575100/21733feb-e145-47d2-8bde-9264e691f913)
+Iterating over 1000 instances for distributions of each treatment group, I was able to plot and see a visual difference in "gate_30" and "gate_40" versions:
+![image](https://github.com/BenJLopez/Cookie-Cats-Mobile-Game-AB-Testing/assets/86575100/b8f0c222-53bd-4aa0-9c17-6dc65e5ae503)
 
+There seems to be minimal overlap, but I wanted to get some test metrics to help quantify the significance of the difference. 
 
-(down to confidence level 95%? 99%?)
-### Confidence Level Tests:
+### Running Tests and Getting P-value:
+Since the target metric I am interested in (7-Day Retention) is a discrete binomial (only True/False, 1 or 0), that narrows my test options to either Fisher's Exact Test or the Chi-Square Test. Because the number of samples is high and I am not used to using Fisher's Exact Test for samples > 100, I will choose the Chi-Square Test.
+
+Luckily we already have the 2x2 Contingency Table values from the groupby I pulled earlier:
+![image](https://github.com/BenJLopez/Cookie-Cats-Mobile-Game-AB-Testing/assets/86575100/3a990790-6969-4165-bb25-dcf98fdfc2db)
+
+And we can just input those values into the 2x2 for the test:
+![image](https://github.com/BenJLopez/Cookie-Cats-Mobile-Game-AB-Testing/assets/86575100/7004b365-9b56-473b-a0e9-bf0af0fb3287)
 
 ## Results:
+A p-value of 0.1 is well under the 5% threshold that is typically used. This lends to a very low probability that the null hypothesis is true. Looks like it is a significant difference and we should stick with the Gate 30 Campaign (ads at level 30).
 
+![image](https://github.com/BenJLopez/Cookie-Cats-Mobile-Game-AB-Testing/assets/86575100/b08f9d50-3a00-4144-aa94-97681198cd37)
 
 ## Final Thoughts:
+Other aspects we could analyze:
+- 1-Day Retention
+- Influence of 1-Day Retention on 7-Day Retention
+- Influence of Sum of Game Rounds on 7-Day Retention
+
+- Ideally we could dig deeper and find out 30-Day Retention, which is not included in this data set, but can be done internally at Tactile Games.
+
