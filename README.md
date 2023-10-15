@@ -11,7 +11,6 @@ I will work through the provide data set to analyze the effects of the AB Test o
 
 A .csv file with 5 columns was provided with complete values (no nulls)
 
-
 user_id = random numerical value unique to each user
 version = either "gate_30" or "gate_40" campaign treatment as mentioned above
 sum_gamerounds = number of game rounds played by user within 14 days of install
